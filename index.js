@@ -6,8 +6,13 @@
  */
 function createDictionary(entries) {
   // Створення порожнього словника
+  let map = new Map();
   // Використання методу forEach для перебору масиву пар ключ-значення
-  // Додавання пари ключ-значення до словника за допомогою методу set
+  entries.forEach(([key, value]) => {
+    // Додавання пари ключ-значення до словника за допомогою методу set
+    map.set(key, value);
+  });
+  return map;
 }
 
 // Приклад використання функції createDictionary
@@ -38,8 +43,12 @@ console.log(
  */
 function convertMapToObject(map) {
   // Перебираємо ключі та значення в словнику
-  // Додаємо ключ та значення до об'єкту
+  for (const [key, value] of map) {
+    // Додаємо ключ та значення до об'єкту
+    map.set(key, value);
+  }
   // Повертаємо отриманий об'єкт
+  return map;
 }
 
 // Приклад використання функції convertMapToObject
@@ -98,8 +107,13 @@ console.log(
  */
 function deleteKey(dictionary, key) {
   // Перевірка, чи існує ключ у словнику
-  // Якщо ключ існує, видаляємо його та відповідне значення
-  // Якщо ключ не знайдено, повертаємо false
+  if (dictionary.has(key)) {
+    // Якщо ключ існує, видаляємо його та відповідне значення
+    dictionary.delete(key);
+  } else {
+    // Якщо ключ не знайдено, повертаємо false
+    return false;
+  }
 }
 
 // Приклад використання функції deleteKey
